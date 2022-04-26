@@ -35,7 +35,7 @@ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 sudo apt-get update && sudo apt-get install -y grafana
 
-echo "min_refresh_interval = 1s" | sudo tee -a /etc/grafana/grafana.ini
+sudo sed -i 's/;min_refresh_interval = 5s/min_refresh_interval = 1s/g' /etc/grafana/grafana.ini
 
 echo "Downloading influxdb data source and dashboard provisioning for grafana"
 sudo wget -O /usr/share/grafana/conf/provisioning/datasources/grafana-datasource-influxdb.yaml https://raw.githubusercontent.com/StianOvrevage/ssdm-april22-loadtesting/main/grafana-datasource-influxdb.yaml
