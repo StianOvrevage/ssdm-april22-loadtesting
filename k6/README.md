@@ -15,6 +15,13 @@ Load test and send metrics to InfluxDB. Do not summarize to conserve resources w
 
     k6 run --no-summary --out influxdb=http://localhost:8086/myk6db --vus 10 --duration 20s script-advanced.js
 
+## Tweaking performance of k6 on Windows Subsystem for Linux (WSL2)
+
+    sudo sysctl -w net.ipv4.ip_local_port_range="1024 65535"
+    sudo sysctl -w net.ipv4.tcp_tw_reuse=1
+    sudo sysctl -w net.ipv4.tcp_timestamps=1
+    sudo prlimit --nofile=250000 --pid $$; ulimit -n 250000
+
 ## Installing tools
 
 ### k6

@@ -37,12 +37,12 @@ sudo apt-get update && sudo apt-get install -y grafana
 
 sudo sed -i 's/;min_refresh_interval = 5s/min_refresh_interval = 1s/g' /etc/grafana/grafana.ini
 
-echo "Downloading influxdb data source and dashboard provisioning for grafana"
+echo "Downloading influxdb data source provisioning for grafana"
 sudo wget -O /usr/share/grafana/conf/provisioning/datasources/grafana-datasource-influxdb.yaml https://raw.githubusercontent.com/StianOvrevage/ssdm-april22-loadtesting/main/grafana-datasource-influxdb.yaml
-sudo wget -O /usr/share/grafana/conf/provisioning/dashboards/grafana-dashboard-provisioning.yaml https://raw.githubusercontent.com/StianOvrevage/ssdm-april22-loadtesting/main/grafana-dashboard-provisioning.yaml
 
 # Doesn't work :(
 #echo "Downloading dashboard"
+# sudo wget -O /usr/share/grafana/conf/provisioning/dashboards/grafana-dashboard-provisioning.yaml https://raw.githubusercontent.com/StianOvrevage/ssdm-april22-loadtesting/main/grafana-dashboard-provisioning.yaml
 #sudo apt-get install -y jq
 #sudo mkdir -p /var/lib/grafana/dashboards
 #wget -O - https://grafana.com/api/dashboards/4411/revisions/4/download | jq '.id |= "1"' | sudo tee /var/lib/grafana/dashboards/k6-load-testing-results.json
