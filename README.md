@@ -20,9 +20,9 @@ Clone the repo:
 
     git clone git@github.com:StianOvrevage/ssdm-april22-loadtesting.git
 
-Install all the tools (you might want to do a `sudo ls` in advance to avoid `sudo` in script asking for password and breaking it)
+Install all the tools
 
-    bash installtools.sh
+    sudo bash installtools.sh
 
 PS: This will update your golang install to 1.18 and remove older versions if you have it installed. Go is generally extremely backwards-compatible so should not pose an issue!
 
@@ -30,4 +30,4 @@ PS: The script does not add `go` to your `PATH` so either you need to add it to 
 
 # Start influxdb and grafana
 
-    bash starttools.sh
+    sudo bash starttools.sh

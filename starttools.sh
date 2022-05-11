@@ -1,10 +1,8 @@
 echo "Starting influxdb and grafana"
 
-export INFLUXDB_DATA_WAL_FSYNC_DELAY=5s
 export INFLUXDB_DATA_QUERY_LOG_ENABLED=false
 export INFLUXDB_HTTP_PPROF_ENABLED=false
 export INFLUXDB_HTTP_MAX_BODY_SIZE=250000000
-export INFLUXDB_HTTP_MAX_ENQUEUED_WRITE_LIMIT=10
 export INFLUXDB_CONTINUOUS_QUERIES_ENABLED=false
 
-sudo influxd & sudo grafana-server -homepath /usr/share/grafana/ -config /etc/grafana/grafana.ini
+influxd & grafana-server -homepath /usr/share/grafana/ -config /etc/grafana/grafana.ini
